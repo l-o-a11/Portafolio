@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laura Ospina | Desarrolladora Full Stack y analista de datos</title>
+    <meta
+      name="description"
+      content="Portafolio de Laura Ospina, desarrolladora Full Stack y analista de datos de Bello, Colombia. Automatización de procesos con React y .NET."
+    />
+    <meta name="author" content="Laura Ospina Acevedo" />
+    <meta name="theme-color" content="#FFF1E6" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#121729" media="(prefers-color-scheme: dark)" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_CO" />
+    <meta property="og:title" content="Laura Ospina | Desarrolladora Full Stack y analista de datos" />
+    <meta
+      property="og:description"
+      content="Automatización de procesos, React y .NET. Conoce mis proyectos."
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script>
+      // Aplica el tema antes del primer pintado para evitar parpadeos.
+      (function () {
+        try {
+          var guardado = localStorage.getItem("tema");
+          var oscuro = guardado
+            ? guardado === "oscuro"
+            : window.matchMedia("(prefers-color-scheme: dark)").matches;
+          if (oscuro) document.documentElement.classList.add("dark");
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

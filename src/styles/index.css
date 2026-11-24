@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+/* El modo oscuro se activa con la clase "dark" en <html>. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ───────── Paleta viva (modo claro) ─────────
+   Mismas tonalidades de siempre (crema, rosa, menta, lavanda, verde grisáceo),
+   con más saturación. Los "vivo-*" son los acentos intensos; el resto, las superficies. */
+:root {
+  color-scheme: light;
+  --fondo: #fff1e6;
+  --superficie: #cff3e4;
+  --secundario: #bfe6dc;
+  --destacado: #ffccd6;
+  --acento: #a5b9ff;
+  --tinta: #1b2540;
+  --tinta-suave: #46526e;
+  --enlace: #3b52d9;
+  --borde: rgb(27 37 64 / 0.14);
+  --sombra: 27 37 64;
+  --sobre-acento: #151a2b;
+
+  --vivo-lavanda: #6f8bff;
+  --vivo-rosa: #ff7da0;
+  --vivo-menta: #35d3a0;
+  --vivo-teal: #3db5a5;
+}
+
+/* ───────── Modo oscuro: azul noche profundo con los vivos como acentos ───────── */
+.dark {
+  color-scheme: dark;
+  --fondo: #121729;
+  --superficie: #1c2440;
+  --secundario: #182036;
+  --destacado: #3a2442;
+  --acento: #a5b9ff;
+  --tinta: #f6eee6;
+  --tinta-suave: #bac3d9;
+  --enlace: #a5b9ff;
+  --borde: rgb(246 238 230 / 0.14);
+  --sombra: 0 0 0;
+  --sobre-acento: #151a2b;
+
+  --vivo-lavanda: #8fa6ff;
+  --vivo-rosa: #ff8fb0;
+  --vivo-menta: #4be3b4;
+  --vivo-teal: #55c7b7;
+}
+
+@theme inline {
+  --color-fondo: var(--fondo);
+  --color-superficie: var(--superficie);
+  --color-secundario: var(--secundario);
+  --color-destacado: var(--destacado);
+  --color-acento: var(--acento);
+  --color-tinta: var(--tinta);
+  --color-tinta-suave: var(--tinta-suave);
+  --color-enlace: var(--enlace);
+  --color-borde: var(--borde);
+  --color-sobre-acento: var(--sobre-acento);
+  --color-vivo-lavanda: var(--vivo-lavanda);
+  --color-vivo-rosa: var(--vivo-rosa);
+  --color-vivo-menta: var(--vivo-menta);
+  --color-vivo-teal: var(--vivo-teal);
+
+  --font-titulo: "Fraunces Variable", Georgia, "Times New Roman", serif;
+  --font-cuerpo: "Plus Jakarta Sans Variable", ui-sans-serif, system-ui, sans-serif;
+
+  /* Dos capas, más ligeras: se animan mejor al hacer scroll. */
+  --shadow-suave: 0 2px 4px rgb(var(--sombra) / 0.05),
+    0 14px 30px -10px rgb(var(--sombra) / 0.2);
+}
+
+@layer base {
+  html {
+    scroll-padding-top: 5.5rem;
+  }
+
+  body {
+    background-color: var(--fondo);
+    color: var(--tinta);
+    font-family: var(--font-cuerpo);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-titulo);
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--enlace);
+    outline-offset: 3px;
+    border-radius: 0.5rem;
+  }
+
+  ::selection {
+    background: var(--vivo-rosa);
+    color: var(--sobre-acento);
+  }
+}
